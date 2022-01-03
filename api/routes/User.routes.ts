@@ -18,7 +18,8 @@ class UserRouter {
 
     private setHttpMethods(): void {
 
-        this._router.get(this._PATH, new ControllerManager().getUserControllers().get);
+        const userController = new ControllerManager().getUserControllers();
+        this._router.post(this._PATH, userController.createUser);
     }
 
 

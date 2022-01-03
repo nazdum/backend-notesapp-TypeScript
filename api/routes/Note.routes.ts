@@ -16,8 +16,9 @@ class NoteRouter {
     getRouter = (): express.Router => this._router;
 
     private setHttpMethods(): void {
-
-        this._router.get(this._PATH, new ControllerManager().getNoteControllers().get);
+        const noteController = new ControllerManager().getNoteControllers();    
+        this._router.post(this._PATH, noteController.createNote);
+        
     }
 
 }
